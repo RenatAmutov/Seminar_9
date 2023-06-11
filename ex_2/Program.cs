@@ -4,8 +4,29 @@
 // M = 1; N = 15 -> 120
 // M = 4; N = 8. -> 30
 
-// Задача 68: Напишите программу вычисления функции Аккермана с помощью рекурсии. 
-// Даны два неотрицательных числа m и n.
+int InputNumber()
+{
+    Console.Write("Vvedite chislo: ");
+    int num = Convert.ToInt32(Console.ReadLine());
+    return num;
+}
 
-// m = 2, n = 3 -> A(m,n) = 9
-// m = 3, n = 2 -> A(m,n) = 29
+int SumNumberOtNDoM (int max, int min)
+{
+    if(max == min)
+    {
+     return min;
+    }
+    else
+    {
+     return max + SumNumberOtNDoM(max-1, min);    
+    }
+}
+
+int max = InputNumber();
+int min = InputNumber();
+if(max < min)
+{
+    (max, min) = (min, max);
+}
+Console.Write($"summa chisel mezdu {min} i {max} ravna {SumNumberOtNDoM(max, min)} ");
